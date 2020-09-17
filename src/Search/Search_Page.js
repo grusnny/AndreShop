@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import InputInverter from './Input_Inverter';
 import Resultado from './Resultados';
-import Paginacion from './Paginacion';
 
 class SearchPage extends Component {
     state={

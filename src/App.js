@@ -52,7 +52,11 @@ function App() {
               render={() => <Home/>} />
             <Route component={PageError} />
           </Switch>
-
+          <footer className="page-footer font-small blue pt-4">
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+              <a href="http://localhost:3000/"> AndresShop.com</a>
+            </div>
+          </footer>
       </BrowserRouter>
   );
 }

@@ -24,7 +24,6 @@ const Producto=(props)=>{
                     <Card.Content extra>
                     <a>
                         <Icon name='user' />
-                        22 Friends
                     </a>
                     </Card.Content>
                 </Card>
