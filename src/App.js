@@ -22,34 +22,6 @@ function App() {
               exact
               path="/busqueda"
               render={() => <SearchPage/>} />
-            <Route
-              exact
-              path="/"
-              render={() => <Home/>} />
-            <Route
-              exact
-              path=""
-              render={() => <Home />} />
-            <Route
-              exact
-              path=""
-              render={() => <Home/>} />
-              <Route
-              exact
-              path=""
-              render={() => <Home/>} />
-              <Route
-              exact
-              path=""
-              render={() => <Home/>} />
-              <Route
-              exact
-              path=""
-              render={() => <Home/>} />
-              <Route
-              exact
-              path=""
-              render={() => <Home/>} />
             <Route component={PageError} />
           </Switch>
           <footer className="page-footer font-small blue pt-4">
