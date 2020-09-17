@@ -30,7 +30,7 @@ class SearchPage extends Component {
                     datosBusqueda={this.datosBusqueda}
                 />
                 </div>
-                <div>
+                <div className="app-container">
                 <Resultado
                     resultado={this.state.resultadoBusqueda}
                 />
