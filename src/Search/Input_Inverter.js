@@ -1,35 +1,42 @@
 import React from 'react'
 import { Segment, Input } from 'semantic-ui-react'
 import SearchResult from './Search_Result'
+var valor='',estado;
 class InputInverted extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {
+          value: '',
+          estado:'',
+
+      };
+
+      this.onSubmit = this.onSubmit.bind(this);
     }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
+
+    onSubmit(e) {
+        estado=1;
+        e.preventDefault();
+        valor = document.getElementById("texto").value;
+        this.setState({value:valor, estado:estado});
+        estado=0;
     }
-  
-    handleSubmit(event) {
-      alert('Se esta realizando la busqueda de: ' + this.state.value);
-      event.preventDefault();
-    }
+
   
     render() {
         const {value} = this.state;
+        const {estado} = this.state;
       return (
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <div class="ui action input">
-                  <Input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Search..."/>
-                  <button class="ui button">Search</button>
-            </div>
-            </form>
-              <SearchResult busqueda={value} />
+          <div><form >
+                <div className="ui action input">
+                    <Input id="texto" type="text" />
+                </div>
+          </form>
+              <div className="ui action input">
+              <button  onClick={this.onSubmit} class="ui button">Save</button>
+              </div>
+
+              <SearchResult busqueda={value} estado={estado} />
           </div>
       );
     }
