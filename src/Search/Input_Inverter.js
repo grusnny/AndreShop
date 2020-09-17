@@ -30,11 +30,9 @@ class InputInverted extends React.Component {
           <div><form >
                 <div className="ui action input">
                     <Input id="texto" type="text" />
+                    <button onClick={this.onSubmit} className="ui button">Save</button>
                 </div>
           </form>
-              <div className="ui action input">
-              <button  onClick={this.onSubmit} class="ui button">Save</button>
-              </div>
 
               <SearchResult busqueda={value} estado={estado} />
           </div>
