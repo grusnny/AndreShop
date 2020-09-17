@@ -1,7 +1,6 @@
 import React from 'react'
 import { Segment, Input } from 'semantic-ui-react'
-import SearchResult from './Search_Result'
-var valor='',estado;
+
 class InputInverted extends React.Component {
     constructor(props) {
       super(props);
@@ -15,11 +14,12 @@ class InputInverted extends React.Component {
     }
 
     onSubmit(e) {
-        estado=1;
         e.preventDefault();
-        valor = document.getElementById("texto").value;
-        this.setState({value:valor, estado:estado});
-        estado=0;
+        //Tomamos el valor del input 
+        const valor = document.getElementById("texto").value;
+
+        //Lo enviamos al componente principal
+        this.props.datosBusqueda(valor);
     }
 
   
@@ -30,11 +30,9 @@ class InputInverted extends React.Component {
           <div><form >
                 <div className="ui action input">
                     <Input id="texto" type="text" />
-                    <button onClick={this.onSubmit} className="ui button">Save</button>
+                    <button onClick={this.onSubmit} className="ui button">Buscar</button>
                 </div>
           </form>
-
-              <SearchResult busqueda={value} estado={estado} />
           </div>
       );
     }

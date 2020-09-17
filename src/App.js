@@ -10,7 +10,6 @@ import 'semantic-ui-css/semantic.min.css'
 function App() {
   return (
     <BrowserRouter>
-        <div>
           <MenuInvertedSecondary/>
           <Switch>
            <Route exact path="/" 
@@ -53,7 +52,6 @@ function App() {
               render={() => <Home/>} />
             <Route component={PageError} />
           </Switch>
-        </div>
 
       </BrowserRouter>
   );
