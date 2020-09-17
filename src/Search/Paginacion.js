@@ -48,7 +48,6 @@ export default class Paginacion extends Component {
             nextItem={showPreviousAndNextNav ? undefined : null}
           />
         </Grid.Column>
-        {this.props.totalResultados}
       </Grid>
     )
   }

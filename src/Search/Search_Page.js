@@ -11,7 +11,6 @@ class SearchPage extends Component {
         totalResultados:0
     }
     paginaBusqueda=(pagina)=>{
-        console.log((pagina-1)*50)
         this.setState({
              pagina:(pagina-1)*50
         }, () => {
@@ -25,6 +24,14 @@ class SearchPage extends Component {
             this.consultarApi(); //calllback luego de actualizar los props
         })
     }
+    validarResultados=(resultado)=>{
+        if(resultado.paging.total>1000){
+            this.setState({totalResultados:1000})
+        }
+        else{
+            this.setState({totalResultados:resultado.paging.total})
+        }
+    }
     consultarApi=()=>{
         const termino=this.state.termino;
         const paginacion=this.state.pagina;
@@ -32,7 +39,7 @@ class SearchPage extends Component {
 
         fetch (url)
             .then(respuesta =>respuesta.json())
-            .then(resultado =>this.setState({resultadoBusqueda:resultado.results, totalResultados:resultado.paging.total}))
+            .then(resultado =>this.setState({resultadoBusqueda:resultado.results},this.validarResultados(resultado)))
     }
     render() {
         return (
@@ -46,10 +53,9 @@ class SearchPage extends Component {
                 <Resultado
                     resultado={this.state.resultadoBusqueda}
                     paginaBusqueda={this.paginaBusqueda}
-                    totalResultados={parseInt(this.state.totalResultados/50, 10)+1}
+                    totalResultados={parseInt((this.state.totalResultados/50), 10)}
                 />
                 </div>
-                {(this.state.pagina)}
              </div>
             );
   }
