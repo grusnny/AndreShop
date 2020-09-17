@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Producto from './Producto';
+import Paginacion from './Paginacion';
 
 class Resultados extends Component {
     mostrarResultados=()=>{
@@ -17,6 +18,10 @@ class Resultados extends Component {
                         />
                     ))}
                 </div>
+                    <Paginacion
+                        paginaBusqueda={this.props.paginaBusqueda}
+                        totalResultados={this.props.totalResultados}
+                    />
             </React.Fragment> 
         )
     }

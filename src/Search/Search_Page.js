@@ -1,11 +1,22 @@
 import React, {Component} from 'react';
 import InputInverter from './Input_Inverter';
 import Resultado from './Resultados';
+import Paginacion from './Paginacion';
 
 class SearchPage extends Component {
     state={
         termino: '',
-        resultadoBusqueda: []
+        resultadoBusqueda: [],
+        pagina:0,
+        totalResultados:0
+    }
+    paginaBusqueda=(pagina)=>{
+        console.log((pagina-1)*50)
+        this.setState({
+             pagina:(pagina-1)*50
+        }, () => {
+             this.consultarApi();
+        })
     }
     datosBusqueda=(termino)=>{
         this.setState({
@@ -16,11 +27,12 @@ class SearchPage extends Component {
     }
     consultarApi=()=>{
         const termino=this.state.termino;
-        const url= `https://api.mercadolibre.com/sites/MCO/search?q=${termino}`;
+        const paginacion=this.state.pagina;
+        const url= `https://api.mercadolibre.com/sites/MCO/search?q=${termino}&offset=${paginacion}`;
 
         fetch (url)
             .then(respuesta =>respuesta.json())
-            .then(resultado =>this.setState({resultadoBusqueda:resultado.results}))
+            .then(resultado =>this.setState({resultadoBusqueda:resultado.results, totalResultados:resultado.paging.total}))
     }
     render() {
         return (
@@ -30,13 +42,15 @@ class SearchPage extends Component {
                     datosBusqueda={this.datosBusqueda}
                 />
                 </div>
-                <div className="app-container">
+                <div  className="row justify-content-center">
                 <Resultado
                     resultado={this.state.resultadoBusqueda}
+                    paginaBusqueda={this.paginaBusqueda}
+                    totalResultados={parseInt(this.state.totalResultados/50, 10)+1}
                 />
                 </div>
+                {(this.state.pagina)}
              </div>
-             
             );
   }
 }
