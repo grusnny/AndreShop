@@ -34,8 +34,8 @@ class SearchPage extends Component {
 
     render() {
         return (
-            <div aling="center" >
-                <InputInverter/>   
+            <div align="center" >
+                <InputInverter/>
              </div>
             );
   }
