@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 import './card-style.css';
 
 class Producto extends Component{
-    handleClick=(id)=>{
-        this.props.obtenerProducto(id)
+    handleClick=(e,id)=>{
+        e.preventDefault();
+        this.props.obtenerProducto(id);
     }
     render(){
     const {thumbnail,title,original_price,state_name,price,condition,id}=this.props.producto;
@@ -23,7 +24,7 @@ class Producto extends Component{
                             <p  className="card-text text-secondary">
                             {condition}
                             </p>
-                            <div  onClick={()=> this.handleClick(this.props.id)} className="btn btn-outline-success">Ir al producto</div>
+                            <div  onClick={(e)=> this.handleClick(e,this.props.id)} className="btn btn-outline-success">Ir al producto</div>
                         </div>
                     </div>
                 </div>
