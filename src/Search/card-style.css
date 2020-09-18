@@ -27,3 +27,9 @@
     transform:scale(0.7);
 
 }
+.ui-item__discount-text {
+    font-size: 14px;
+    vertical-align: 3px;
+    padding-left: 10px;
+    color: #39b54a;
+}

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { isValidElement } from 'react'
 import './card-style.css';
 
 const Producto=(props)=>{
-    const {thumbnail,title,original_price,state_name}=props.producto;
+    const {thumbnail,title,original_price,state_name,price,condition}=props.producto;
     return(
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" >
                 <div class="card text-center shadow">
@@ -10,9 +10,12 @@ const Producto=(props)=>{
                     <img src={thumbnail} alt="" className="card-img-top"/>
                     </div>
                     <div className="card-body text-dark">
-                        <h4 className="card-title">{title}</h4>
+                        <h4 className="card-title">{'$'+price}
+                        {/* <div className="ui-item__discount-text "> {parseInt(((precio/original_price)*100))+'% OFF'}</div> */}
+                        </h4>
+                        <h6 className="card-title">{title} </h6>
                         <p  className="card-text text-secondary">
-                            Prueba de texto
+                        {condition}
                         </p>
                         <a href="#" className="btn btn-outline-success">Ir al producto</a>
                     </div>
