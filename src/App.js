@@ -6,6 +6,7 @@ import SearchPage from './Search/Search_Page'
 import MenuInvertedSecondary  from './Home/Barra_desplazamiento' 
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css'
+import Producto from './Producto/Productos';
 class App extends Component {
   state={
     producto:''
@@ -14,8 +15,11 @@ class App extends Component {
     this.setState({
       producto
     })
+ 
 
+    window.location.href = "/producto";
   }
+
   render (){
     return(
     <BrowserRouter>
@@ -33,6 +37,10 @@ class App extends Component {
               render={() => <SearchPage
                 obtenerProducto={this.obtenerProducto}
               />} />
+              <Route
+              exact
+              path="/producto"
+              render={() => <Producto producto={this.state.producto}/>} />
             <Route component={PageError} />
           </Switch>
           <footer className="page-footer font-small blue pt-4">

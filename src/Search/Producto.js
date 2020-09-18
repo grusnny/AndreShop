@@ -5,7 +5,9 @@ import './card-style.css';
 class Producto extends Component{
     handleClick=(e,id)=>{
         e.preventDefault();
+        localStorage.setItem('producto',id);
         this.props.obtenerProducto(id);
+
     }
     render(){
     const {thumbnail,title,original_price,state_name,price,condition,id}=this.props.producto;
