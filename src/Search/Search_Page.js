@@ -53,6 +53,7 @@ class SearchPage extends Component {
                     resultado={this.state.resultadoBusqueda}
                     paginaBusqueda={this.paginaBusqueda}
                     totalResultados={parseInt((this.state.totalResultados/50), 10)}
+                    obtenerProducto={this.props.obtenerProducto}
                 />
                 </div>
              </div>

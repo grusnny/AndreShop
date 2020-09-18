@@ -15,6 +15,8 @@ class Resultados extends Component {
                             <Producto
                                 key={resultado.id}
                                 producto={resultado}
+                                id={resultado.id}
+                                obtenerProducto={this.props.obtenerProducto}
                             />
                         ))}
                     </div>
