@@ -10,18 +10,18 @@ class Resultados extends Component {
 
         return(
             <React.Fragment>
-                <div className="col-12 p-5 row">
-                    {resultados.map(resultado =>(
-                        <Producto
-                            key={resultado.id}
-                            producto={resultado}
+                    <div className="body col-12 p-5 row">
+                        {resultados.map(resultado =>(
+                            <Producto
+                                key={resultado.id}
+                                producto={resultado}
+                            />
+                        ))}
+                    </div>
+                        <Paginacion
+                            paginaBusqueda={this.props.paginaBusqueda}
+                            totalResultados={this.props.totalResultados}
                         />
-                    ))}
-                </div>
-                    <Paginacion
-                        paginaBusqueda={this.props.paginaBusqueda}
-                        totalResultados={this.props.totalResultados}
-                    />
             </React.Fragment> 
         )
     }
