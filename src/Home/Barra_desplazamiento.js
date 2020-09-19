@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu, MenuHeader, Segment } from 'semantic-ui-react'
 export default class MenuInvertedSecondary extends Component {
   state = { activeItem: 'home'}
 
@@ -30,6 +30,9 @@ export default class MenuInvertedSecondary extends Component {
       <Segment inverted>
         <Menu inverted pointing secondary>
           <Menu.Item
+            name='AndresShop'
+          />
+          <Menu.Item
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
@@ -47,6 +50,7 @@ export default class MenuInvertedSecondary extends Component {
             onClick={this.handleItemClick}
 
           />
+
         </Menu>
 
       </Segment>
